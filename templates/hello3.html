@@ -1,0 +1,50 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    h1 {
+      color:  blue;
+      text-align: center;
+      font-size: 36px;
+      animation: moveTitle 1.5s ease-in-out infinite alternate;
+    }
+    h2 {
+      color: rgb(121, 73, 73);
+      text-align: center;
+      font-size: 24px;
+
+    }
+    .img1{
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      width:300px  
+    }
+
+    @keyframes moveTitle {
+      from {
+        transform: translateX(-40px);
+      }
+      to {
+        transform: translateX(40px);
+      }
+    }
+</style>
+
+<body>
+  <div>
+      <img class="img1" src={% static "image/img1.jfif" %} alt="網站圖片">
+  </div>
+  <h1>歡迎光臨:{{username}}</h1>
+  <h2>現在時間:西元{{ now|date:"Y年m月d日 H時i分s秒" }}</h2>
+</body>
+</html>
