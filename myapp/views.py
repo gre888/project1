@@ -80,16 +80,6 @@ def get2(request):
   return render(request, "get2.html", locals())
 
 
-# def get2-2(rqueest, name=None, city=None):
-#     status=True
-#     if 'name' in rqueest.GET:
-#         name = rqueest.GET['name']
-#     if 'city' in rqueest.GET:
-#         city = rqueest.GET['city']
-#     else:
-#        status=False
-#     return render(rqueest, "get2.html", locals())
-
 def get3(request, mode):
   print(f"mode: {mode}")
   # return HttpResponse(f"Hello get3, mode: {mode}")
@@ -102,26 +92,27 @@ def get3(request, mode):
   elif mode == "load":
     return render(request, "get3.html", locals())
   
-  # if mode == "save":
-  #   name=request.GET.get("name")
-  #   city=request.GET.get("city")
-  #   print(f"name: {name}, city: {city}")  
-  #   # return HttpResponse("Hello get")
-  #   return render(request, "get3_response.html", locals())
-  # elif mode == "load":
-  #   return render(request, "get3.html", locals())
   
 def post1(request):
   if request.method == "POST":
-    username=request.POST.get("username")
-    passwd=request.POST.get("passwd")
-    if username=="david" and passwd=="1234":
-      status = True
+    # return HttpResponse("表單已送出")
+    username=request.POST.get("username", None).strip() #去除前後空白
+    password=request.POST.get("password", None).strip()
+    print(f"username: {username}, passwd: {password}")
+    # username=request.POST['username'] #前端已經擋了 所以不用get也可以擋
+    # password=request.POST['password'] 
+
+    if username == 'admin' and password == '1234':
+      # return HttpResponse("登入成功")
+      status=True
     else:
-      status = False
-    return render(request, "post1_response.html", locals())  
+      # return HttpResponse("登入失敗")
+      status=False
+    return render(request, "post1_response.html", locals())
   else:
     return render(request, "post1.html", locals())
+  
+
 
 
 
