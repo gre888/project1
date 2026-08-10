@@ -7,14 +7,15 @@
 </head>
 
 <body>
-  <h3> 
-    {% for person in persons%}
+  {% for person in persons%}
+  <h2>{{ forloop.counter }}員工</h2>
   <ul>
     <li>姓名: {{ person.name }}</li>
     <li>電話: {{ person.phone }}</li>
     <li>年齡: {{ person.age }}</li>
   </ul>
-    {% endfor %}
-  </h3>
+  {% empty %}
+  <h2>沒有員工資料</h2>
+  {% endfor %}
 </body>
 </html>

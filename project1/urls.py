@@ -28,5 +28,10 @@ urlpatterns = [
     path('dice1/', views.dice1),
     path('dice2/', views.dice2),
     path('dice3/', views.dice3),
+    path('get1/', views.get1),
+    path('get2/', views.get2),
+    path('get3/<str:mode>/', views.get3),
+    path('post1/', views.post1),
+    path('post2/', views.post2),
 
 ]
