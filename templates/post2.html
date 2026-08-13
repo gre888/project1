@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>歡迎來到我的網站</h1>
+  <form action="/post2/" method="post">
+    {% csrf_token %}
+
+
+        <div>你學會的項目為</div>
+        <div>
+          <input type="checkbox" name="items" id="linux" value="linux">
+          <label for="linux">Linux</label>
+          <input type="checkbox" name="items" id="python" value="python">
+          <label for="python">Python</label>
+          <input type="checkbox" name="items" id="mysql" value="mysql">
+          <label for="mysql">MySQL</label>
+          <input type="checkbox" name="items" id="html" value="html">
+          <label for="html">HTML</label>
+        </div>
+
+        <div>
+          <input type="submit" value="送出">
+        </div>
+
+  </form>
+</body>
+</html>

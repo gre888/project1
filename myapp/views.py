@@ -112,7 +112,13 @@ def post1(request):
   else:
     return render(request, "post1.html", locals())
   
-
+def post2(request):
+  if request.method == "POST":
+    items=request.POST.getlist('items') #取得多選checkbox的值，回傳為list
+    print(items)
+    return render(request, "post2_response.html", locals())
+  else:
+    return render(request, "post2.html", locals())
 
 
 
